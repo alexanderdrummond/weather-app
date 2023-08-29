@@ -8,6 +8,7 @@ const PrognosisContent = () => {
       temperature: '25°C',
       wind: '5km/h',
       humidity: '20%',
+      reciprocation: '10%',
     },
     {
       day: 'Day 2',
@@ -15,6 +16,7 @@ const PrognosisContent = () => {
       temperature: '22°C',
       wind: '3km/h',
       humidity: '22%',
+      reciprocation: '10%',
     },
     {
       day: 'Day 3',
@@ -22,6 +24,8 @@ const PrognosisContent = () => {
       temperature: '23°C',
       wind: '4km/h',
       humidity: '18%',
+      reciprocation: '10%',
+
     },
   ];
 
@@ -31,7 +35,7 @@ const PrognosisContent = () => {
         Prognosis
       </Text>
       <Divider mb={4} />
-      <Tabs isLazy align="center">
+      <Tabs isFitted isLazy align="center">
         <TabList>
           <Tab>Cards</Tab>
           <Tab>Table</Tab>
@@ -58,6 +62,7 @@ const PrognosisContent = () => {
                   <Th>Temperature</Th>
                   <Th>Wind</Th>
                   <Th>Humidity</Th>
+                  <Th>Reciprocation</Th>
                 </Tr>
               </Thead>
               <Tbody>
@@ -68,6 +73,7 @@ const PrognosisContent = () => {
                     <Td>{data.temperature}</Td>
                     <Td>{data.wind}</Td>
                     <Td>{data.humidity}</Td>
+                    <Td>{data.reciprocation}</Td>
                   </Tr>
                 ))}
               </Tbody>
