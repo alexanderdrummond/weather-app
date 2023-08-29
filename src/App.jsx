@@ -5,8 +5,8 @@ import Header from './components/Header/Header';
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh">
+      <Box>
+        <Grid minH="10vh">
           <Header />
         </Grid>
       </Box>
