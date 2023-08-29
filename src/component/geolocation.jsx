@@ -1,18 +1,35 @@
 import { useEffect, useState } from "react";
 
 export function Geolocation() {
-    const [geolocation, setGeolocation] = useState([]);
-  
-    function getGeolocation() {
-      const url =
-        "https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=10&language=en&format=json";
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => setGeolocation(data));
-    }
-  
-    useEffect(() => {
-        getGeolocation;
-    }, []);
-    console.log("Geolocation", geolocation);
+
+    const [location, setLocation] = useState(null);
+
+
+    function handleLocationClick() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(success, error);
+        } else {
+          console.log("Geolocation not supported");
+        }
+      }
+    
+      function success(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        setLocation({ latitude, longitude });
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+       
+        function error() {
+            console.log("Unable to retrieve your location");
+          }
+          
+          }
+
+          return (
+            <div>
+              geolocation
+              <p>Location: {name}</p>
+
+            </div>
+          );
   }
