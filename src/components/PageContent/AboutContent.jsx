@@ -14,7 +14,8 @@ const AboutContent = () => {
   ];
 
   return (
-    <Box p={4}>
+    <Flex justifyContent="center">
+    <Box width="80%" textColor="white" mt={10} p={4} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" backdropFilter="blur(13.5px)" border="1px solid rgba(255, 255, 255, 0.18)">
       <Text fontSize="2xl" mb={4}>
         About
       </Text>
@@ -33,6 +34,17 @@ const AboutContent = () => {
             <AccordionIcon />
           </AccordionButton>
           <AccordionPanel pb={4}>Used for building the UI components and managing state.</AccordionPanel>
+        </AccordionItem>
+
+        <AccordionItem>
+          <AccordionButton>
+            <Flex flex="1" textAlign="left" alignItems="center">
+              <img src="/googlemaps.svg" alt="Framer Motion" style={{ width: '16px', height: '16px', marginRight: '8px' }} />
+              Google Cloud API
+            </Flex>
+            <AccordionIcon />
+          </AccordionButton>
+          <AccordionPanel pb={4}>Used for suggestions in searches and geocoding place name queries to coordinates.</AccordionPanel>
         </AccordionItem>
 
         <AccordionItem>
@@ -83,6 +95,7 @@ const AboutContent = () => {
   ))}
 </Flex>
     </Box>
+    </Flex>
   );
 };
 
