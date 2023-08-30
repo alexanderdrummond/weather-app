@@ -4,6 +4,8 @@ import { ChevronDownIcon, InfoIcon, } from '@chakra-ui/icons';
 const Header = ({ setCurrentPage, currentPage }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+// handler skift af side
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
     onClose();

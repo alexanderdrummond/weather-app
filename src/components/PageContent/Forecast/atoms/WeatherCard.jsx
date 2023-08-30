@@ -3,6 +3,8 @@ import { FiMapPin } from 'react-icons/fi';
 import { InputGroup, Input, InputRightElement } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 
+// Alle relevante funktioner bliver passet som props. Input feltet benytter onChange til at calle handleInputChange med valuen fra feltet. Alt data kommer via props fra weatherData
+
 const WeatherCard = ({ weatherData, getDayOfWeek, searchInput, suggestions, suggestionsRef, handleInputChange, handlePlaceClick, }) => {
 
   return (

@@ -4,10 +4,7 @@ import { getPlaceSuggestions } from '../../../utils/googleservices';
 import { getWeatherDataByPlaceName } from '../../../utils/openmeteoservices';
 import WeatherCard from './atoms/WeatherCard';
 
-
-
 const ForecastContent = () => {
-
   const [searchInput, setSearchInput] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const suggestionsRef = useRef(null);
