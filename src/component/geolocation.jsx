@@ -1,35 +1,62 @@
 import { useEffect, useState } from "react";
 
-export function Geolocation() {
+export const Geolocation = () => {
+  const [city, setCity] = useState("");
 
-    const [location, setLocation] = useState(null);
+  function success(pos) {
+    let crd = pos.coords;
+    // console.log("Your current position is:");
+    // console.log(`Latitude : ${crd.latitude}`);
+    // console.log(`Longitude: ${crd.longitude}`);
 
+    //API Request
+    const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${crd.latitude}&lon=${crd.longitude}`;
 
-    function handleLocationClick() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(success, error);
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.address && data.address.city) {
+          const cityName = data.address.city;
+          console.log("City Name:", cityName);
+          setCity(cityName);
         } else {
-          console.log("Geolocation not supported");
+          console.error("City name not found in response");
         }
-      }
-    
-      function success(position) {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        setLocation({ latitude, longitude });
-        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-       
-        function error() {
-            console.log("Unable to retrieve your location");
-          }
-          
-          }
-
-          return (
-            <div>
-              geolocation
-              <p>Location: {name}</p>
-
-            </div>
-          );
+      })
+      .catch(error => {
+        console.error("Error fetching city name:", error);
+      });
   }
+
+  function errors(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.permissions
+        .query({ name: "geolocation" })
+        .then(function (result) {
+          console.log(result);
+          if (result.state === "granted") {
+
+            navigator.geolocation.getCurrentPosition(success, errors);
+          } else if (result.state === "prompt") {
+
+            navigator.geolocation.getCurrentPosition(success, errors);
+          } else if (result.state === "denied") {
+
+          }
+        });
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  }, []);
+
+  return (
+    <div>
+      Location: {city}
+    </div>
+  );
+};
+
