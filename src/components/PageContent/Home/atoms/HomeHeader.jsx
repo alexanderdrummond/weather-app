@@ -14,15 +14,15 @@ export function HomeHeader() {
             <Text mb='6px' fontSize='20px'>17° / 10°</Text>
             <Flex justifyContent='space-between' flexDirection='row' gap='6px' mt={4} mb={4}>
                 <Flex alignItems='center' gap='10px'>
-                    <Image src='/wind.svg' h='20px' />
+                    <Image src='/wind.svg' h='26px' />
                     <Text>9.4 km/h</Text>
                 </Flex>
                 <Flex alignItems='center' gap='10px'>
-                    <Image src='/rain.svg' h='20px' />
+                    <Image src='/rain.svg' h='26px' />
                     <Text>0.3 mm</Text>
                 </Flex>
                 <Flex alignItems='center' gap='10px'>
-                    <Image src='/humidity.svg' h='20px' />
+                    <Image src='/humidity.svg' h='26px' />
                     <Text>10 %</Text>
                 </Flex>
             </Flex>
