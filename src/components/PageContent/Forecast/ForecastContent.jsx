@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react';
 import { useState, useRef, useEffect } from 'react';
-import { getPlaceSuggestions } from '../../../utils/googleservices';
-import { getWeatherDataByPlaceName } from '../../../utils/openmeteoservices';
-import WeatherCard from './atoms/WeatherCard';
+import { getPlaceSuggestions } from '../../../utils/googleServices';
+import { getWeatherByPlace } from '../../../utils/weatherFetch';
+import WeatherCard from './atoms/WeatherCards';
 
 const ForecastContent = () => {
   const [searchInput, setSearchInput] = useState('');
@@ -13,19 +13,19 @@ const ForecastContent = () => {
   
 // Tager en dateString og konverterer den til et date objekt, som så finder dagen af ugen f.eks. mandag
 
-  const getDayOfWeek = (dateString) => {
-    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const date = new Date(dateString);
-    const dayOfWeek = date.getDay();
-    return daysOfWeek[dayOfWeek];
-  };
+const getDayAndDate = (dateString) => {
+  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const date = new Date(dateString);
+  const dayOfWeek = daysOfWeek[date.getDay()];
+  return `${dayOfWeek}`;
+};
 
-  // Tager et placeName og bruger bruger getWeatherDataByPlaceName fra utility funktionen og opdaterer weatherData staten og til sidst sætter den.
+  // Tager et placeName og bruger bruger getWeatherByPlace fra utility funktionen og opdaterer weatherData staten og til sidst sætter den.
 
   const handlePlaceClick = async (placeName) => {
     setSearchInput(placeName);
     setSuggestions([]);  
-    const data = await getWeatherDataByPlaceName(placeName);
+    const data = await getWeatherByPlace(placeName);
     if (data) {
       setWeatherData(data.daily);
       
@@ -87,7 +87,7 @@ const ForecastContent = () => {
     <Box>
     <WeatherCard
         weatherData={weatherData}
-        getDayOfWeek={getDayOfWeek}
+        getDayAndDate={getDayAndDate}
         searchInput={searchInput}
         suggestions={suggestions}
         suggestionsRef={suggestionsRef}

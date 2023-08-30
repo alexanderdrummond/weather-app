@@ -13,11 +13,11 @@ const Header = ({ setCurrentPage, currentPage }) => {
 
   return (
     <>
-      <Box className="rainbow-gradient"></Box>
       <Box className="header-depth" bg="black" w="100%" p={4} color="white">
         <Flex justifyContent="space-between" alignItems="center">
           <Box>
-            <Text fontSize="2xl">Weather App</Text>
+          <Text>Weather app</Text>
+
           </Box>
           <Box>
             <Menu isOpen={isOpen} onOpen={onOpen} onClose={onClose}>

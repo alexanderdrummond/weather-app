@@ -1,4 +1,4 @@
-import { Box, Text, Divider, Accordion, AccordionItem,
+import { Box, Text, Accordion, AccordionItem,
   Badge, AccordionButton, AccordionPanel, AccordionIcon, Flex } from '@chakra-ui/react';
 
 
@@ -16,13 +16,9 @@ const AboutContent = () => {
   return (
     <Flex justifyContent="center">
     <Box width="80%" textColor="white" mt={10} p={4} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" backdropFilter="blur(13.5px)" border="1px solid rgba(255, 255, 255, 0.18)">
-      <Text fontSize="2xl" mb={4}>
-        About
-      </Text>
-      <Divider mb={4} />
       
       <Text fontSize="lg" fontWeight="semibold" mb={2}>
-        Technologies Used
+        Technologies used
       </Text>
       <Accordion allowToggle>
         <AccordionItem>
@@ -82,13 +78,13 @@ const AboutContent = () => {
       </Accordion>
 
       <Text fontSize="lg" fontWeight="semibold" mt={6} mb={2}>
-        Team Members
+        Team members
       </Text>
       <Flex direction={{ base: 'column', md: 'row' }} justify="start">
   {team.map((member, index) => (
     <Box key={index} mb={{ base: 4, md: 0 }} mr={{ md: index !== team.length - 1 ? 4 : 0 }}>
       <Text>{member.name}</Text>
-      <Badge variant="outline" colorScheme="blue">
+      <Badge variant="subtle" colorScheme="green">
         {member.task}
       </Badge>
     </Box>
