@@ -1,7 +1,7 @@
 import { ChakraProvider, Box, Grid, theme } from '@chakra-ui/react';
 import { useState } from 'react';
 import Header from './components/Header/Header';
-import HomeContent from './components/PageContent/HomeContent';
+import HomeContent from './components/PageContent/Home/HomeContent';
 import ForecastContent from './components/PageContent/Forecast/ForecastContent';
 import AboutContent from './components/PageContent/AboutContent';
 import './App.css'
