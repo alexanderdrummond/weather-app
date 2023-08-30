@@ -11,12 +11,16 @@ const ForecastContent = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   
+// Tager en dateString og konverterer den til et date objekt, som så finder dagen af ugen f.eks. mandag
+
   const getDayOfWeek = (dateString) => {
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const date = new Date(dateString);
     const dayOfWeek = date.getDay();
     return daysOfWeek[dayOfWeek];
   };
+
+  // Tager et placeName og bruger bruger getWeatherDataByPlaceName fra utility funktionen og opdaterer weatherData staten og til sidst sætter den.
 
   const handlePlaceClick = async (placeName) => {
     setSearchInput(placeName);
@@ -28,11 +32,16 @@ const ForecastContent = () => {
     }
   };
 
+  // Registrerer et event objekt og tjekker efter enter tryk og caller handlePlaceClick med det nuværende searchInput
+
   const handleEnterPress = async (e) => {
     if (e.key === 'Enter') {
       handlePlaceClick(searchInput);
     }
   };
+
+
+// Sætter default placeClick til Aalborg og tilføjer/fjerner keydown eventlisteners 
 
   useEffect(() => {
     handlePlaceClick('Aalborg');
@@ -45,6 +54,8 @@ const ForecastContent = () => {
     };
   }, [searchInput]);
 
+// Tager input og opdaterer searchInput staten og fetcher samtidigt place suggestions og opdaterer så "suggestions"
+
   const handleInputChange = async (input) => {
     setSearchInput(input);
     if (input) {
@@ -54,6 +65,8 @@ const ForecastContent = () => {
       setSuggestions([]);
     }
   };
+
+  // Registrerer klik udenfor suggestions boksen og sætter suggestions til et empty array samt skjuler boksen
 
   const handleOutsideClick = (e) => {
     if (suggestionsRef.current && !suggestionsRef.current.contains(e.target)) {
