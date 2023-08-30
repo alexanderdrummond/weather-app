@@ -80,7 +80,7 @@ export const Geolocation = () => {
 
   return (
     <div>
-      Geolocation: {city} {/* Display the city name */}
+      Location: {city} {/* Display the city name */}
     </div>
   );
 };
