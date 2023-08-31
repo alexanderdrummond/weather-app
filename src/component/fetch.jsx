@@ -1,32 +1,54 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-export const Fetching = () => {
-  const [weather, setWeather] = useState(null);
+export function WeatherData() {
+  const [location, setLocation] = useState({});
+  const [weather, setWeather] = useState({});
 
-  const fetchWeatherData = () => {
-    fetch("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,precipitation,cloudcover,windspeed_10m,winddirection_10m&daily=sunrise,sunset&timezone=Europe%2FBerlin&forecast_days=3")
-      .then(response => response.json())
-      .then(data => {
+  useEffect(() => {
+    getCurrentPosition();
+  }, []);
+
+  const getCurrentPosition = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      console.log('Geolocation not supported');
+    }
+  };
+
+  const success = (position) => {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    setLocation({ latitude, longitude });
+    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+    fetchWeatherData(latitude, longitude);
+  };
+
+  const fetchWeatherData = (latitude, longitude) => {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relativehumidity_2m,precipitation,weathercode,cloudcover,windspeed_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,windspeed_10m_max&timezone=Europe%2FBerlin`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
         setWeather(data);
       })
-      .catch(error => {
-        console.error("Error fetching weather data:", error);
+      .catch((error) => {
+        console.error('Error fetching weather data:', error);
       });
   };
 
   useEffect(() => {
-    fetchWeatherData();
-  }, []);
+    console.log("Weather:", weather);
+  }, [weather]);
 
-  if (!weather) {
-    return <p>Loading...</p>;
-  }
+  const error = () => {
+    console.log('Unable to retrieve your location');
+  };
 
-  const sunriseTime = weather.daily.sunrise[1]; // You might want to perform additional checks here
+  
 
   return (
-    <div>
-      <p>Sunrise: {sunriseTime}</p>
-    </div>
+    <></>
   );
-};
+}

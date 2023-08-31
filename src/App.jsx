@@ -1,18 +1,12 @@
 import "./App.css";
-import { Fetching } from "./component/Fetch";
-
-import { Geolocation } from "./component/geolocation";
-
-import { Fetcher } from "./component/fetchingdata";
+import {  WeatherData } from "./component/Fetch";
 
 
 
 function App() {
   return (
     <>
-      <Fetching/>
-      <Geolocation />
-      <Fetcher/>
+     <WeatherData/>
 
     </>
   );
