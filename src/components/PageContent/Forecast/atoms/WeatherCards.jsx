@@ -1,6 +1,8 @@
 import { Box, Text, Flex, SimpleGrid, Spacer, VStack, Grid, Divider } from '@chakra-ui/react';
 import InputField from './InputField';
 import { mapCode } from '../../../../utils/weatherUtils'; 
+import { motion } from 'framer-motion';
+
 
 const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, suggestionsRef, handleInputChange, handlePlaceClick }) => {
 
@@ -38,6 +40,11 @@ const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, sug
           const weatherCode = weatherData.weathercode[index];
           const { icon, description } = mapCode(weatherCode);
           return (
+            <motion.div 
+            initial={{ opacity: 0, y: 20}}
+            animate={{ opacity: 1, y: 0}}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            key={index}>
                   <Box
                     key={index}
                     bg="rgba(255, 255, 255, 0.1)"
@@ -49,7 +56,7 @@ const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, sug
                     textAlign="center"
                     color="white"
                     boxShadow="0px 8px 32px rgba(31, 38, 135, 0.37)"
-                    backdropFilter="blur(13.5px)"
+                    
                     border="1px solid rgba(255, 255, 255, 0.18)"
                   >
                     <Flex direction="column" h="100%" justify="space-between">
@@ -93,10 +100,12 @@ const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, sug
                       </Grid>
                     </Flex>
                   </Box>
+                  </motion.div>
                 );
               })}
           </SimpleGrid>
         </Box>
+        
       </Box>
     </Flex>
   );
