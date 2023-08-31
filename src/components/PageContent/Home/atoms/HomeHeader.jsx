@@ -6,9 +6,8 @@ export function HomeHeader({ weatherInfo, isLoading }) {
     const { weatherData, cityName } = weatherInfo;
     const { icon: weatherIcon, description: weatherDescription } = mapCode(weatherData?.hourly.weathercode[0]);
 
-    useEffect(() => {
-        console.log(weatherInfo);
-    }, []);
+    const d = new Date();
+    let currentTimeIndex = d.getHours();
 
     return (
         <>
@@ -28,7 +27,7 @@ export function HomeHeader({ weatherInfo, isLoading }) {
                     <Heading mb='10px' fontSize='44' fontWeight='500'>{cityName}</Heading>
                     <Flex justifyContent='space-between' alignItems='center' mb='6px'>
                         <Box>
-                            <Text fontSize='54px' display='inline' mr='10px'>{Math.round(weatherData?.hourly.temperature_2m[0])}°</Text>
+                            <Text fontSize='54px' display='inline' mr='10px'>{Math.round(weatherData?.hourly.temperature_2m[currentTimeIndex])}°</Text>
                             <Text fontSize='20px' display='inline'>{weatherDescription}</Text>
                         </Box>
                         <Image src={weatherIcon} h='60px' alt={weatherDescription} />
@@ -37,15 +36,15 @@ export function HomeHeader({ weatherInfo, isLoading }) {
                     <Flex justifyContent='space-between' flexDirection='row' gap='6px' mb='16px'>
                         <Flex alignItems='center' gap='10px'>
                             <Image src='/wind.svg' h='26px' alt='wind' />
-                            <Text>{Math.round(weatherData?.hourly.windspeed_10m[0])} km/h</Text>
+                            <Text>{Math.round(weatherData?.hourly.windspeed_10m[currentTimeIndex])} km/h</Text>
                         </Flex>
                         <Flex alignItems='center' gap='10px'>
                             <Image src='/rain.svg' h='26px' alt='rain' />
-                            <Text>{Math.round(weatherData?.hourly.precipitation[0])} mm</Text>
+                            <Text>{Math.round(weatherData?.hourly.precipitation[currentTimeIndex])} mm</Text>
                         </Flex>
                         <Flex alignItems='center' gap='10px'>
                             <Image src='/humidity.svg' h='26px' alt='humidity' />
-                            <Text>{Math.round(weatherData?.hourly.relativehumidity_2m[0])} %</Text>
+                            <Text>{Math.round(weatherData?.hourly.relativehumidity_2m[currentTimeIndex])} %</Text>
                         </Flex>
                     </Flex>
                 </>
