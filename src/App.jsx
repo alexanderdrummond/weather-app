@@ -1,5 +1,5 @@
 import "./App.css";
-import { Fetching } from "./component/fetch";
+import { Fetching } from "./component/Fetch";
 
 import { Geolocation } from "./component/geolocation";
 
