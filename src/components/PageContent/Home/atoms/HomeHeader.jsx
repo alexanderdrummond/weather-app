@@ -1,29 +1,40 @@
 import { Text, Heading, Box, Image, Flex } from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { mapCode } from '../../../../utils/weatherUtils';
 
-export function HomeHeader() {
+export function HomeHeader({ weatherInfo, isLoading }) {
+
+    const { weatherData, cityName } = weatherInfo;
+
+    const { icon: weatherIcon, description: weatherDescription } = mapCode(weatherData?.hourly.weathercode[0])
+
+    useEffect(() => {
+        console.log(weatherInfo);
+    }, [])
+
     return (
         <>
-            <Heading mb='10px' fontSize='44' fontWeight='500'>Aalborg</Heading>
+            <Heading mb='10px' fontSize='44' fontWeight='500'>{cityName}</Heading>
             <Flex justifyContent='space-between' alignItems='center' mb='6px'>
                 <Box>
-                    <Text fontSize='54px' display='inline' mr='10px'>16°</Text>
-                    <Text fontSize='20px' display='inline'>Partly cloudy</Text>
+                    <Text fontSize='54px' display='inline' mr='10px'>{Math.round(weatherData?.hourly.temperature_2m[0])}°</Text>
+                    <Text fontSize='20px' display='inline'>{weatherDescription}</Text>
                 </Box>
-                <Image src='/rain.svg' h='60px' alt='rain' />
+                <Image src={weatherIcon} h='60px' alt={weatherDescription} />
             </Flex>
-            <Text mb='16px' fontSize='20px'>17° / 10°</Text>
+            <Text mb='16px' fontSize='20px'>{Math.round(weatherData?.daily.temperature_2m_max[0])}° / {Math.round(weatherData?.daily.temperature_2m_min[0])}°</Text>
             <Flex justifyContent='space-between' flexDirection='row' gap='6px' mb='16px'>
                 <Flex alignItems='center' gap='10px'>
                     <Image src='/wind.svg' h='26px' alt='wind' />
-                    <Text>9 km/h</Text>
+                    <Text>{Math.round(weatherData?.hourly.windspeed_10m[0])} km/h</Text>
                 </Flex>
                 <Flex alignItems='center' gap='10px'>
                     <Image src='/rain.svg' h='26px' alt='rain' />
-                    <Text>0.3 mm</Text>
+                    <Text>{Math.round(weatherData?.hourly.precipitation[0])} mm</Text>
                 </Flex>
                 <Flex alignItems='center' gap='10px'>
                     <Image src='/humidity.svg' h='26px' alt='humidity' />
-                    <Text>10 %</Text>
+                    <Text>{Math.round(weatherData?.hourly.relativehumidity_2m[0])} %</Text>
                 </Flex>
             </Flex>
         </>
