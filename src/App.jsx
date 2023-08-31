@@ -12,7 +12,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Box
-        bgImage="url('https://cdn.pika.style/wallpapers/series-two/series-2-pika-wallpaper-6.png')"
+        bgImage="url('/bg.png')"
         bgPosition="center"
         bgSize="cover"
         bgRepeat="no-repeat"

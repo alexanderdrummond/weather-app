@@ -10,10 +10,17 @@ const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, sug
     return date.toLocaleDateString(undefined, options);
   };
 
+  const getTime = (timestamp) => {
+    const date = new Date(timestamp);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    return `${hours}:${minutes}`;
+  };
+
 
   return (
     <Flex justifyContent="center">
-      <Box width="80%" textColor="white" mt={10} p={4} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" backdropFilter="blur(13.5px)" border="1px solid rgba(255, 255, 255, 0.18)">
+      <Box width={["90%", "90%", "80%"]} textColor="white" mt={10} p={4} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" backdropFilter="blur(13.5px)" border="1px solid rgba(255, 255, 255, 0.18)">
         <Box display="flex" flexDirection="column" alignItems="center">
           <InputField
             searchInput={searchInput}
@@ -22,7 +29,7 @@ const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, sug
             handleInputChange={handleInputChange}
             handlePlaceClick={handlePlaceClick}
           />
-          <Text fontSize="lg" fontWeight="bold" mb="5">Displaying 12-day forecast for {searchInput}</Text>
+          <Text display="flex" alignItems="center" textAlign="Center" fontSize="lg" fontWeight="bold" mb="7">Displaying 12-day forecast for {searchInput}</Text>
           <SimpleGrid columns={[1, null, 4]} spacing={4} justifyContent="center">
           {weatherData &&
         weatherData.time.map((dateString, index) => {
@@ -38,7 +45,7 @@ const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, sug
                     p={4}
                     borderRadius="10px"
                     mb={4}
-                    width={["100%", "auto", "300px"]}
+                    width={["290px", "80%", "300px"]}
                     textAlign="center"
                     color="white"
                     boxShadow="0px 8px 32px rgba(31, 38, 135, 0.37)"
@@ -54,26 +61,34 @@ const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, sug
                       <Spacer />
                       <VStack align="flex-end" spacing={1}>
                         <img src={icon} alt={description} width="24" />
-                        <Text fontSize="sm">{description}</Text>
+                        <Text fontSize="md">{description}</Text>
                       </VStack>
                     </Flex>
                     <Divider my={4} borderColor="white" />
-                      <Grid templateColumns="repeat(2, 1fr)" gap={4} mt={4}>
+                      <Grid templateColumns="repeat(3, 1fr)" gap={4} mt={4}>
                         <Flex flexDirection="column" alignItems="center">
-                          <img src="/wind.svg" alt="Wind Icon" width="16" />
-                          <Text mt={2}>{weatherData.windspeed_10m_max[index]} m/s</Text>
+                          <img src="/sunrise.svg" alt="Wind Icon" width="24" />
+                          <Text mt={2}>{getTime(weatherData.sunrise[index])}</Text>
                         </Flex>
                         <Flex flexDirection="column" alignItems="center">
-                          <img src="/wind.svg" alt="Wind Icon" width="16" />
-                          <Text mt={2}>{weatherData.windspeed_10m_max[index]} m/s</Text>
+                          <img src="/tempplus.svg" alt="Wind Icon" width="24" />
+                          <Text mt={2}>{Math.round(weatherData.temperature_2m_max[index])} °C</Text>
                         </Flex>
                         <Flex flexDirection="column" alignItems="center">
-                          <img src="/humidity.svg" alt="Humidity Icon" width="16" />
-                          <Text mt={2}>x</Text>
+                          <img src="/wind.svg" alt="Wind Icon" width="24" />
+                          <Text mt={2}>{Math.round(weatherData.windspeed_10m_max[index])} m/s</Text>
                         </Flex>
                         <Flex flexDirection="column" alignItems="center">
-                          <img src="/rain.svg" alt="Precipitation Icon" width="16" />
-                          <Text mt={2}>{weatherData.precipitation_probability_max[index]}</Text>
+                          <img src="/sunset.svg" alt="Wind Icon" width="24" />
+                          <Text mt={2}>{getTime(weatherData.sunset[index])}</Text>
+                        </Flex>
+                        <Flex flexDirection="column" alignItems="center">
+                          <img src="/tempminus.svg" alt="Wind Icon" width="24" />
+                          <Text mt={2}>{Math.round(weatherData.temperature_2m_min[index])} °C</Text>
+                        </Flex>
+                        <Flex flexDirection="column" alignItems="center">
+                          <img src="/rain.svg" alt="Precipitation Icon" width="24" />
+                          <Text mt={2}>{weatherData.precipitation_probability_max[index]}%</Text>
                         </Flex>
                       </Grid>
                     </Flex>

@@ -15,6 +15,7 @@ const InputField = ({ searchInput, suggestions, suggestionsRef, handleInputChang
         onChange={(e) => handleInputChange(e.target.value)}
         borderRadius="md"
         borderColor="gray.300"
+        focusBorderColor="rgba(116, 63, 155, 0.7)"
         className="input1"
       />
       <InputRightElement>

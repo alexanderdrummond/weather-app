@@ -1,9 +1,9 @@
 export const mapCode = (weatherCode) => {
     const mapping = {
-      0: { icon: 'https://openweathermap.org/img/wn/09d@2x.png', description: 'Clear' },
-      1: { icon: 'https://openweathermap.org/img/wn/09d@2x.png', description: 'Clear' },
-      2: { icon: 'https://openweathermap.org/img/wn/09d@2x.png', description: 'Cloudy' },
-      3: { icon: 'https://openweathermap.org/img/wn/09d@2x.png', description: 'Overcast' },
+      0: { icon: '/sunny.svg', description: 'Clear' },
+      1: { icon: '/sunny.svg', description: 'Clear' },
+      2: { icon: '/partlycloudy.svg', description: 'Cloudy' },
+      3: { icon: '/cloudy.svg', description: 'Overcast' },
       45: { icon: '/sunny.svg', description: 'Fog' },
       48: { icon: '/sunny.svg', description: 'Fog' },
       51: { icon: '/sunny.svg', description: 'Drizzle' },
