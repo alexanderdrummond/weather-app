@@ -5,27 +5,10 @@ export function HomeSlider({ weatherInfo, isLoading }) {
 
     const { weatherData, cityName } = weatherInfo;
 
-    
     const d = new Date();
     let currentTimeIndex = d.getHours();
     
     const { icon: weatherIcon, description: weatherDescription } = mapCode(weatherData?.hourly.weathercode[currentTimeIndex])
-    
-    const returnHoursAhead = () => {
-        for (let i; i < 25; i++) {
-
-            currentTimeIndex++
-
-            return (
-                <Flex flexDir='column' alignItems='center' gap='6px'>
-                    <Text>{weatherData.hourly[currentTimeIndex].time.slice(-5)}</Text>
-                    <Image src={weatherIcon} height='30px' alt={weatherDescription} />
-                    <Text>{Math.round(weatherData?.hourly.temperature_2m[currentTimeIndex])}°</Text>
-                </Flex>
-            )
-        }
-    }
-
 
 
     return (
@@ -35,23 +18,6 @@ export function HomeSlider({ weatherInfo, isLoading }) {
                 <Image src={weatherIcon} height='30px' alt={weatherDescription} />
                 <Text>{Math.round(weatherData?.hourly.temperature_2m[0])}°</Text>
             </Flex>
-            {returnHoursAhead()}
-
-
-
-
-
         </Flex>
     )
 }
-
-
-// {weatherData && weatherData.hourly..map((hour) => {
-//     return (
-//         <Flex flexDir='column' alignItems='center' gap='6px'>
-//             <Text>Now</Text>
-//             <Image src='/rain.svg' height='30px' alt='rain' />
-//             <Text>16°</Text>
-//         </Flex>
-//     )
-// })}
