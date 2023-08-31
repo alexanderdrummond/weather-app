@@ -83,7 +83,7 @@ const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, sug
                           <Text mt={2}>{getTime(weatherData.sunrise[index])}</Text>
                         </Flex>
                         <Flex flexDirection="column" alignItems="center">
-                          <img src="/tempplus2.svg" alt="Wind Icon" width="24" />
+                          <img src="/tempplus.svg" alt="Wind Icon" width="24" />
                           <Text mt={2}>{Math.round(weatherData.temperature_2m_max[index])} °C</Text>
                         </Flex>
                         <Flex flexDirection="column" alignItems="center">
@@ -95,7 +95,7 @@ const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, sug
                           <Text mt={2}>{getTime(weatherData.sunset[index])}</Text>
                         </Flex>
                         <Flex flexDirection="column" alignItems="center">
-                          <img src="/tempminus2.svg" alt="Wind Icon" width="24" />
+                          <img src="/tempminus.svg" alt="Wind Icon" width="24" />
                           <Text mt={2}>{Math.round(weatherData.temperature_2m_min[index])} °C</Text>
                         </Flex>
                         <Flex flexDirection="column" alignItems="center">
