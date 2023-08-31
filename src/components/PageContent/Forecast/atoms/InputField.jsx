@@ -1,4 +1,4 @@
-import { Box, InputGroup, Input, InputRightElement, keyframes } from '@chakra-ui/react';
+import { Box, InputGroup, Button, Input, InputRightElement, keyframes } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { FiMapPin } from 'react-icons/fi';
 import './InputField.css'
@@ -19,7 +19,14 @@ const InputField = ({ searchInput, suggestions, suggestionsRef, handleInputChang
         className="input1"
       />
       <InputRightElement>
-        <SearchIcon color="white" />
+      <Button
+          onClick={() => handleInputChange(searchInput)}
+          colorScheme="white"
+          variant="ghost"
+          _hover={{ color: 'black' }}
+        >
+          <SearchIcon color="white" />
+        </Button>
       </InputRightElement>
       {suggestions.length > 0 && (
         <Box

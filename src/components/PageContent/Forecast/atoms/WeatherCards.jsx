@@ -22,7 +22,7 @@ const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, sug
 
   return (
     <Flex justifyContent="center">
-      <Box width={["90%", "90%", "80%"]} textColor="white" mt={10} p={4} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" backdropFilter="blur(13.5px)" border="1px solid rgba(255, 255, 255, 0.18)">
+      <Box width={["90%", "90%", "80%"]} textColor="white" mt={10} p={4} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" backdropFilter="blur(13.5px)" border="1px solid rgba(255, 255, 255, 0.18)" mb={[10, 10, 0]}>
         <Box display="flex" flexDirection="column" alignItems="center">
           <InputField
             searchInput={searchInput}
@@ -31,7 +31,12 @@ const WeatherCard = ({ weatherData, getDayAndDate, searchInput, suggestions, sug
             handleInputChange={handleInputChange}
             handlePlaceClick={handlePlaceClick}
           />
-          <Text display="flex" alignItems="center" textAlign="Center" fontSize="lg" fontWeight="bold" mb="7">Displaying 12-day forecast for {searchInput}</Text>
+          <Text display="flex" alignItems="center" textAlign="Center" fontSize="lg" fontWeight="bold" mb="7">
+  Displaying 8-day forecast for {searchInput
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')}
+</Text>
           <SimpleGrid columns={[1, null, 4]} spacing={4} justifyContent="center">
           {weatherData &&
         weatherData.time.map((dateString, index) => {
