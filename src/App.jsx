@@ -1,16 +1,29 @@
 import { ChakraProvider, Box, Grid, theme } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './utils/fonts.css';
 import Header from './components/Header/Header';
 import HomeContent from './components/PageContent/Home/HomeContent';
 import ForecastContent from './components/PageContent/Forecast/ForecastContent';
 import AboutContent from './components/PageContent/AboutContent';
+import LoadingScreen from './components/Header/LoadingScreen';
 import './App.css'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
+  const [isLoading, setIsLoading] = useState(true); 
+
+  useEffect(() => {
+    
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
+    <>
+    {isLoading && <LoadingScreen />}
     <ChakraProvider theme={theme}>
       <Box
         bgImage="url('/bg.png')"
@@ -29,6 +42,7 @@ function App() {
         {currentPage === 'About' && <AboutContent />}
       </Box>
     </ChakraProvider>
+    </>
   );
 }
 

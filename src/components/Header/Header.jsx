@@ -38,15 +38,15 @@ const Header = ({ setCurrentPage, currentPage }) => {
 
               <MenuList p={0} bg="gray.100" color="black">
                 <MenuItem py={2} onClick={() => handlePageChange('Home')} bg="gray.100" _hover={{ bg: 'gray.200' }}>
-                  <img src="/home.svg" width="20" /> <Text ml="8px">Home</Text>
+                  <img src="/home.svg" width="20" /> <Text ml="8px">| Home</Text>
                 </MenuItem>
                 
                 <MenuItem py={2} onClick={() => handlePageChange('Forecast')} bg="gray.100" _hover={{ bg: 'gray.200' }}>
-                <img src="/calendar.svg" width="20" /> <Text ml="8px">Forecast</Text>
+                <img src="/calendar.svg" width="20" /> <Text ml="8px">| Forecast</Text>
                 </MenuItem>
                
                 <MenuItem py={2} onClick={() => handlePageChange('About')} bg="gray.100" _hover={{ bg: 'gray.200' }}>
-                <img src="/info.svg" width="20" /> <Text ml="8px">About</Text>
+                <img src="/info.svg" width="20" /> <Text ml="8px">| About</Text>
                 </MenuItem>
               </MenuList>
 
