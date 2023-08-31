@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export function WeatherData() {
   const [location, setLocation] = useState({});
@@ -23,7 +24,22 @@ export function WeatherData() {
     console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
 
     fetchWeatherData(latitude, longitude);
+    fetchCityName(latitude, longitude);
   };
+
+  const fetchCityName = (latitude, longitude) => {
+    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+  
+    axios
+      .get(url)
+      .then((response) => {
+        const cityName = response.data.address.city;
+        console.log('City Name:', cityName);
+      })
+      .catch((error) => {
+        console.error('Error fetching city name:', error);
+      });
+    }
 
   const fetchWeatherData = (latitude, longitude) => {
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relativehumidity_2m,precipitation,weathercode,cloudcover,windspeed_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,windspeed_10m_max&timezone=Europe%2FBerlin`;
