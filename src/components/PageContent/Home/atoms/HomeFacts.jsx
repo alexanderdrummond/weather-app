@@ -41,7 +41,7 @@ export function HomeFacts() {
                         <Image src='/wind.svg' h='46px' />
                         <Flex flexDir='column'>
                             <Text textAlign='end' fontSize={18}>Max wind</Text>
-                            <Text textAlign='end' fontSize={24}>13.7 km/h</Text>
+                            <Text textAlign='end' fontSize={24}>13 km/h</Text>
                         </Flex>
                     </Flex>
                 </GridItem>

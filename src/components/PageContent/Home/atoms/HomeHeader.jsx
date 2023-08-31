@@ -3,7 +3,7 @@ import { Text, Heading, Box, Image, Flex } from '@chakra-ui/react';
 export function HomeHeader() {
     return (
         <>
-            <Heading mb='20px' fontSize='40px'>Aalborg</Heading>
+            <Heading mb='20px' fontSize='40'>Aalborg</Heading>
             <Flex justifyContent='space-between' alignItems='center'>
                 <Box>
                     <Text fontSize='54px' display='inline' mr='10px'>16°</Text>
@@ -15,7 +15,7 @@ export function HomeHeader() {
             <Flex justifyContent='space-between' flexDirection='row' gap='6px' mt={4} mb={4}>
                 <Flex alignItems='center' gap='10px'>
                     <Image src='/wind.svg' h='26px' />
-                    <Text>9.4 km/h</Text>
+                    <Text>9 km/h</Text>
                 </Flex>
                 <Flex alignItems='center' gap='10px'>
                     <Image src='/rain.svg' h='26px' />
