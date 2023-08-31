@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { useState, useRef, useEffect } from 'react';
+import {motion} from 'framer-motion';
 import { getPlaceSuggestions } from '../../../utils/googleServices';
 import { getWeatherByPlace } from '../../../utils/weatherFetch';
 import WeatherCard from './atoms/WeatherCards';
@@ -84,6 +85,10 @@ const getDayAndDate = (dateString) => {
   
 
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}>
     <Box>
     <WeatherCard
         weatherData={weatherData}
@@ -94,7 +99,7 @@ const getDayAndDate = (dateString) => {
         handleInputChange={handleInputChange}
         handlePlaceClick={handlePlaceClick}
       />
-    </Box>
+    </Box></motion.div>
   );
 };
 

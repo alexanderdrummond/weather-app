@@ -3,6 +3,7 @@ import { ChevronDownIcon, InfoIcon, } from '@chakra-ui/icons';
 
 const Header = ({ setCurrentPage, currentPage }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  
 
 // handler skift af side
 
@@ -19,7 +20,7 @@ const Header = ({ setCurrentPage, currentPage }) => {
           <Box ml="20px">
           <img src="/logo.svg" alt="Weather Logo" width="60px" />
           </Box>
-          <Text ml="20px" fontSize="lg" fontFamily="Obadiah">weatherShark</Text>
+          <Text ml="20px" fontSize="lg" fontFamily="Obadiah" display={{ base: 'none', md: 'block' }}>weatherShark</Text>
         </Flex>
           <Box>
             <Menu isOpen={isOpen} onOpen={onOpen} onClose={onClose} >
