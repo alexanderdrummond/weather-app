@@ -12,16 +12,18 @@ function getCurrentPosition() {
       navigator.geolocation.getCurrentPosition(
         (position) => resolve({ latitude: position.coords.latitude, longitude: position.coords.longitude }),
         (error) => {
-          console.log('Unable to retrieve your location');
+          console.log('Unable to retrieve your location:', error);
           reject(error);
         }
       );
     } else {
-      console.log('Geolocation not supported');
-      reject(new Error('Geolocation not supported'));
+      const geolocationError = new Error('Geolocation not supported');
+      console.log(geolocationError.message);
+      reject(geolocationError);
     }
   });
 }
+
 
 async function fetchCityName(latitude, longitude) {
   const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;

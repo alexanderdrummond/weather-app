@@ -13,17 +13,21 @@ function HomeContent() {
     useEffect(() => {
         async function fetchData() {
             try {
+                console.log('Fetching data...');
                 const data = await getWeatherData();
+                console.log('Fetched data:', data);
                 setWeatherInfo(data);
                 setIsLoading(false);
             } catch (error) {
-                
+                console.error('Error fetching data:', error);
                 setIsLoading(false);
             }
         }
-
+        
+    
         fetchData();
     }, []);
+    
 
     return (
         <motion.div
