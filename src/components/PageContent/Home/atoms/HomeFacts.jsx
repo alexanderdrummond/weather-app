@@ -9,7 +9,7 @@ export function HomeFacts() {
     return (
         <>
             <Grid gridTemplateColumns={isDesktop ? 'repeat(4, 1fr)' : 'repeat(2, 1fr)'} gap={4}>
-                <GridItem boxSizing='border-box' width="100%" textColor="white" m='0px 0px' p={3} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" backdropFilter="blur(13.5px)" border="1px solid rgba(255, 255, 255, 0.28)" gap='30px'>
+                <GridItem boxSizing='border-box' width="100%" textColor="white" m='0px 0px' p={3} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" border="1px solid rgba(255, 255, 255, 0.28)" gap='30px'>
                     <Flex justifyContent='space-between' alignItems='center'>
                         <Image src='/sunrise.svg' h='46px' />
                         <Flex flexDir='column'>
@@ -18,7 +18,7 @@ export function HomeFacts() {
                         </Flex>
                     </Flex>
                 </GridItem>
-                <GridItem boxSizing='border-box' width="100%" textColor="white" m='0px 0px' p={3} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" backdropFilter="blur(13.5px)" border="1px solid rgba(255, 255, 255, 0.28)" gap='30px'>
+                <GridItem boxSizing='border-box' width="100%" textColor="white" m='0px 0px' p={3} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" border="1px solid rgba(255, 255, 255, 0.28)" gap='30px'>
                     <Flex justifyContent='space-between' alignItems='center'>
                         <Image src='/sunset.svg' h='46px' />
                         <Flex flexDir='column'>
@@ -27,7 +27,7 @@ export function HomeFacts() {
                         </Flex>
                     </Flex>
                 </GridItem>
-                <GridItem boxSizing='border-box' width="100%" textColor="white" m='0px 0px' p={3} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" backdropFilter="blur(13.5px)" border="1px solid rgba(255, 255, 255, 0.28)" gap='30px'>
+                <GridItem boxSizing='border-box' width="100%" textColor="white" m='0px 0px' p={3} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" border="1px solid rgba(255, 255, 255, 0.28)" gap='30px'>
                     <Flex justifyContent='space-between' alignItems='center' height='100%'>
                         <Image src='/uv.svg' h='46px' />
                         <Flex flexDir='column' justifyContent='space-between' height='100%'>
@@ -36,7 +36,7 @@ export function HomeFacts() {
                         </Flex>
                     </Flex>
                 </GridItem>
-                <GridItem boxSizing='border-box' width="100%" textColor="white" m='0px 0px' p={3} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" backdropFilter="blur(13.5px)" border="1px solid rgba(255, 255, 255, 0.28)" gap='30px'>
+                <GridItem boxSizing='border-box' width="100%" textColor="white" m='0px 0px' p={3} backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" border="1px solid rgba(255, 255, 255, 0.28)" gap='30px'>
                     <Flex justifyContent='space-between' alignItems='center'>
                         <Image src='/wind.svg' h='46px' />
                         <Flex flexDir='column'>
