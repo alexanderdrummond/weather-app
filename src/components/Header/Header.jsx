@@ -33,7 +33,7 @@ const Header = ({ setCurrentPage, currentPage }) => {
                 bg="gray.100"
                 mr="20px"
               >
-                {currentPage} <ChevronDownIcon />
+                {currentPage} <ChevronDownIcon transform={isOpen ? 'rotate(0deg)' : 'rotate(-180deg)'} transition='400ms'/>
               </MenuButton>
 
               <MenuList p={0} bg="gray.100" color="black">
