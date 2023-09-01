@@ -1,8 +1,9 @@
 import {
   Box, Text, Accordion, AccordionItem,
-  Badge, AccordionButton, AccordionPanel, AccordionIcon, Flex
+  Badge, AccordionButton, AccordionPanel, AccordionIcon, Flex, IconButton, Link
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 
 
@@ -33,6 +34,9 @@ const AboutContent = () => {
                 <Flex flex="1" textAlign="left" alignItems="center">
                   <img src="/react.svg" alt="React" style={{ width: '16px', height: '16px', marginRight: '8px' }} />
                   React
+                  <Link href='https://react.dev/' isExternal display='flex' alignItems='center' justifyContent='center' ml='8px'>
+                    <ExternalLinkIcon mx='2px' />
+                  </Link>
                 </Flex>
                 <AccordionIcon />
               </AccordionButton>
@@ -44,6 +48,9 @@ const AboutContent = () => {
                 <Flex flex="1" textAlign="left" alignItems="center">
                   <img src="/googlemaps.svg" alt="Framer Motion" style={{ width: '16px', height: '16px', marginRight: '8px' }} />
                   Google Cloud API
+                  <Link href='https://cloud.google.com/apis' isExternal display='flex' alignItems='center' justifyContent='center' ml='8px'>
+                    <ExternalLinkIcon mx='2px' />
+                  </Link>
                 </Flex>
                 <AccordionIcon />
               </AccordionButton>
@@ -55,6 +62,9 @@ const AboutContent = () => {
                 <Flex flex="1" textAlign="left" alignItems="center">
                   <img src="/framer.svg" alt="Framer Motion" style={{ width: '16px', height: '16px', marginRight: '8px' }} />
                   Framer Motion
+                  <Link href='https://www.framer.com/motion/' isExternal display='flex' alignItems='center' justifyContent='center' ml='8px'>
+                    <ExternalLinkIcon mx='2px' />
+                  </Link>
                 </Flex>
                 <AccordionIcon />
               </AccordionButton>
@@ -66,6 +76,9 @@ const AboutContent = () => {
                 <Flex flex="1" textAlign="left" alignItems="center">
                   <img src="/chakra.svg" alt="Chakra UI" style={{ width: '16px', height: '16px', marginRight: '8px' }} />
                   Chakra UI
+                  <Link href='https://chakra-ui.com/' isExternal display='flex' alignItems='center' justifyContent='center' ml='8px'>
+                    <ExternalLinkIcon mx='2px' />
+                  </Link>
                 </Flex>
                 <AccordionIcon />
               </AccordionButton>
@@ -77,6 +90,9 @@ const AboutContent = () => {
                 <Flex flex="1" textAlign="left" alignItems="center">
                   <img src="/openmeteo.svg" alt="OpenMeteo" style={{ width: '16px', height: '16px', marginRight: '8px' }} />
                   OpenMeteo
+                  <Link href='https://open-meteo.com/' isExternal display='flex' alignItems='center' justifyContent='center' ml='8px'>
+                    <ExternalLinkIcon mx='2px' />
+                  </Link>
                 </Flex>
                 <AccordionIcon />
               </AccordionButton>
@@ -88,6 +104,9 @@ const AboutContent = () => {
                 <Flex flex="1" textAlign="left" alignItems="center">
                   <img src="/openmeteo.svg" alt="OpenMeteo" style={{ width: '16px', height: '16px', marginRight: '8px' }} />
                   Icônes by Antfu
+                  <Link href='https://icones.js.org/' isExternal display='flex' alignItems='center' justifyContent='center' ml='8px'>
+                    <ExternalLinkIcon mx='2px' />
+                  </Link>
                 </Flex>
                 <AccordionIcon />
               </AccordionButton>
