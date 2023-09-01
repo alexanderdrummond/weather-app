@@ -1,7 +1,13 @@
 import { Grid, GridItem, Box, Text, Image, Flex, Skeleton, useMediaQuery } from '@chakra-ui/react';
+import { useEffect } from 'react';
 
-export function HomeFacts({ isLoading }) {
+export function HomeFacts({ weatherInfo, isLoading }) {
+    const { weatherData } = weatherInfo;
     const [isDesktop] = useMediaQuery('(min-width: 1200px)')
+
+    useEffect(() => {
+        console.log(weatherInfo);
+    }, [])
 
     return (
         <>
@@ -25,7 +31,7 @@ export function HomeFacts({ isLoading }) {
                                 <Image src='/sunrise.svg' h='46px' alt='sunrise' />
                                 <Flex flexDir='column'>
                                     <Text textAlign='end' fontSize={18}>Sunrise</Text>
-                                    <Text textAlign='end' fontSize={24}>06.13</Text>
+                                    <Text textAlign='end' fontSize={24}>{weatherData?.daily.sunrise[0].slice(-5)}</Text>
                                 </Flex>
                             </Flex>
                         </GridItem>
@@ -34,7 +40,7 @@ export function HomeFacts({ isLoading }) {
                                 <Image src='/sunset.svg' h='46px' alt='sunset' />
                                 <Flex flexDir='column'>
                                     <Text textAlign='end' fontSize={18}>Sunset</Text>
-                                    <Text textAlign='end' fontSize={24}>21.44</Text>
+                                    <Text textAlign='end' fontSize={24}>{weatherData?.daily.sunset[0].slice(-5)}</Text>
                                 </Flex>
                             </Flex>
                         </GridItem>
@@ -42,8 +48,8 @@ export function HomeFacts({ isLoading }) {
                             <Flex justifyContent='space-between' alignItems='center' height='100%'>
                                 <Image src='/uv.svg' h='46px' alt='uv' />
                                 <Flex flexDir='column' justifyContent='space-between' height='100%'>
-                                    <Text textAlign='end' fontSize={18}>UV</Text>
-                                    <Text textAlign='end' fontSize={24}>3</Text>
+                                    <Text textAlign='end' fontSize={18}>Max UV</Text>
+                                    <Text textAlign='end' fontSize={24}>{weatherData?.daily.uv_index_max[0]}</Text>
                                 </Flex>
                             </Flex>
                         </GridItem>
@@ -52,7 +58,7 @@ export function HomeFacts({ isLoading }) {
                                 <Image src='/wind.svg' h='46px' alt='wind' />
                                 <Flex flexDir='column'>
                                     <Text textAlign='end' fontSize={18}>Max wind</Text>
-                                    <Text textAlign='end' fontSize={24}>13 km/h</Text>
+                                    <Text textAlign='end' fontSize={24}>{weatherData?.daily.windspeed_10m_max[0]} km/h</Text>
                                 </Flex>
                             </Flex>
                         </GridItem>
