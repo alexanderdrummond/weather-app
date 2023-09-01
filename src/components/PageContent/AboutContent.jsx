@@ -1,6 +1,6 @@
 import {
   Box, Text, Accordion, AccordionItem,
-  Badge, AccordionButton, AccordionPanel, AccordionIcon, Flex, IconButton, Link
+  Badge, AccordionButton, AccordionPanel, AccordionIcon, Flex, Link, VStack
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { ExternalLinkIcon } from '@chakra-ui/icons'
@@ -12,9 +12,9 @@ const AboutContent = () => {
 
   const team = [
     { name: 'Alex', task: '' },
-    { name: 'Cæcilie', task: 'xyz' },
-    { name: 'Katrine', task: 'xyz' },
-    { name: 'Simon', task: 'xyz' },
+    { name: 'Cæcilie', task: '' },
+    { name: 'Katrine', task: '' },
+    { name: 'Simon', task: '' },
   ];
 
   return (
@@ -117,16 +117,13 @@ const AboutContent = () => {
           <Text fontSize="lg" fontWeight="semibold" mt={6} mb={2}>
             Team members
           </Text>
-          <Flex direction={{ base: 'column', md: 'row' }} justify="start">
+          <VStack alignItems='start'>
             {team.map((member, index) => (
               <Box key={index} mb={{ base: 4, md: 0 }} mr={{ md: index !== team.length - 1 ? 4 : 0 }}>
                 <Text>{member.name}</Text>
-                <Badge variant="subtle" colorScheme="green">
-                  {member.task}
-                </Badge>
               </Box>
             ))}
-          </Flex>
+          </VStack>
         </Box>
       </Flex>
     </motion.div>
