@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import { useState, useRef, useEffect } from 'react';
 import {motion} from 'framer-motion';
-import { getPlaceSuggestions } from '../../../utils/googleServices';
+import { getPlaceSuggestions } from '../../../utils/googleservices';
 import { getWeatherByPlace } from '../../../utils/weatherFetch';
 import WeatherCard from './atoms/WeatherCards';
 
