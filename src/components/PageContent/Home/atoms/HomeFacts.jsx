@@ -58,7 +58,7 @@ export function HomeFacts({ weatherInfo, isLoading }) {
                                 <Image src='/wind.svg' h='46px' alt='wind' />
                                 <Flex flexDir='column'>
                                     <Text textAlign='end' fontSize={18}>Max wind</Text>
-                                    <Text textAlign='end' fontSize={24}>{weatherData?.daily.windspeed_10m_max[0]} km/h</Text>
+                                    <Text textAlign='end' fontSize={24}>{Math.round(weatherData?.daily.windspeed_10m_max[0])} km/h</Text>
                                 </Flex>
                             </Flex>
                         </GridItem>
