@@ -82,6 +82,17 @@ const AboutContent = () => {
               </AccordionButton>
               <AccordionPanel pb={4}>Used for fetching weather data.</AccordionPanel>
             </AccordionItem>
+
+            <AccordionItem>
+              <AccordionButton>
+                <Flex flex="1" textAlign="left" alignItems="center">
+                  <img src="/openmeteo.svg" alt="OpenMeteo" style={{ width: '16px', height: '16px', marginRight: '8px' }} />
+                  Icônes by Antfu
+                </Flex>
+                <AccordionIcon />
+              </AccordionButton>
+              <AccordionPanel pb={4}>Used for icons.</AccordionPanel>
+            </AccordionItem>
           </Accordion>
 
           <Text fontSize="lg" fontWeight="semibold" mt={6} mb={2}>
