@@ -36,15 +36,15 @@ export function HomeHeader({ weatherInfo, isLoading }) {
                     <Flex justifyContent='space-between' flexDirection='row' gap='6px' mb='16px'>
                         <Flex alignItems='center' gap='10px'>
                             <Image src='/wind.svg' h='26px' alt='wind' />
-                            <Text>{Math.round(weatherData?.hourly.windspeed_10m[currentTimeIndex])} km/h</Text>
+                            <Text fontSize='17px'>{Math.round(weatherData?.hourly.windspeed_10m[currentTimeIndex])} km/h</Text>
                         </Flex>
                         <Flex alignItems='center' gap='10px'>
                             <Image src='/rain.svg' h='26px' alt='rain' />
-                            <Text>{Math.round(weatherData?.hourly.precipitation[currentTimeIndex])} mm</Text>
+                            <Text fontSize='17px'>{Math.round(weatherData?.hourly.precipitation[currentTimeIndex])} mm</Text>
                         </Flex>
                         <Flex alignItems='center' gap='10px'>
                             <Image src='/humidity.svg' h='26px' alt='humidity' />
-                            <Text>{Math.round(weatherData?.hourly.relativehumidity_2m[currentTimeIndex])} %</Text>
+                            <Text fontSize='17px'>{Math.round(weatherData?.hourly.relativehumidity_2m[currentTimeIndex])} %</Text>
                         </Flex>
                     </Flex>
                 </>
