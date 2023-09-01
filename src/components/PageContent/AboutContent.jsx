@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 const AboutContent = () => {
 
   const team = [
-    { name: 'Alex', task: 'xyz' },
+    { name: 'Alex', task: '' },
     { name: 'Cæcilie', task: 'xyz' },
     { name: 'Katrine', task: 'xyz' },
     { name: 'Simon', task: 'xyz' },

@@ -19,7 +19,7 @@ export function HomeHeader({ weatherInfo, isLoading }) {
                     <Flex justifyContent="space-between" flexDirection="row" gap="6px">
                         <Skeleton height="26px" width="50px" />
                         <Skeleton height="26px" width="50px" />
-                        <Skeleton height="26px" width="50px" />
+                        <Skeleton height="26px" width="50px" mb="10px" />
                     </Flex>
                 </>
             ) : (
