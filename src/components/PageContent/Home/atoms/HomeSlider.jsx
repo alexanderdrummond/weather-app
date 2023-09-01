@@ -12,7 +12,7 @@ export function HomeSlider({ weatherInfo, isLoading }) {
     const currentHour = new Date().getHours();
 
     return (
-        <Flex overflow='scroll' boxSizing='border-box' width="100%" textColor="white" mb='16px' p='8px 16px' backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" border="1px solid rgba(255, 255, 255, 0.28)" gap='32px'>
+        <Flex overflow='scroll' boxSizing='border-box' width="100%" textColor="white" mb='16px' p='8px 12px' backgroundColor="rgba(255, 255, 255, 0.1)" borderRadius="10px" border="1px solid rgba(255, 255, 255, 0.28)" gap='24px'>
             {isLoading ? (
                
                 Array.from({ length: 25 }).map((_, index) => (
