@@ -8,4 +8,5 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 Vejr app lavet af Alexander, Cæcilie, Katrine og Simon
+
 Appen er lavet med React og Chakra UI library
